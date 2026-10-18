@@ -1,13 +1,14 @@
 # зависимости
 node_modules/
 
-# сборка / Vite / Nitro / TanStack
+# сборка / Vite / Nitro / TanStack / Wrangler
 dist/
 .output/
 .nitro/
 .vinxi/
 .tanstack/
 .vite/
+.wrangler/
 
 # env и секреты
 .env
