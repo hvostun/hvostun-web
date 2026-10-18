@@ -6,10 +6,7 @@ import {
   MissionSection,
   SolutionSection,
 } from "@/components/landing/story-sections";
-import {
-  PartnersSection,
-  ParticipationSection,
-} from "@/components/landing/action-sections";
+import { PartnersSection } from "@/components/landing/action-sections";
 import { UsefulSection } from "@/components/landing/useful-section";
 import { SiteFooter } from "@/components/landing/site-footer";
 
@@ -52,7 +49,6 @@ function LandingPage() {
         <MissionSection />
         <SolutionSection />
         <UsefulSection />
-        <ParticipationSection />
         <PartnersSection />
       </main>
       <SiteFooter />

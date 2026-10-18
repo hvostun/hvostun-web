@@ -5,7 +5,7 @@
  * В описательных текстах продукт называется «сервис» до получения прав на название.
  */
 
-export const RESEARCH_FORM_URL = "https://forms.yandex.ru/u/6a7f4c8b4936398f0aeaa1d2/";
+export const RESEARCH_FORM_URL = "https://t.me/lilya_te?text=%D0%93%D0%BE%D1%82%D0%BE%D0%B2%28-%D0%B0%29%20%D1%83%D1%87%D0%B0%D1%81%D1%82%D0%B2%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D0%B2%20%D0%B8%D1%81%D1%81%D0%BB%D0%B5%D0%B4%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B8%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0%20%D0%A5%D0%B2%D0%BE%D1%81%D1%82%D1%83%D0%BD.";
 
 export const PILOT_FORM_URL = "https://t.me/zhurina_polina";
 
@@ -13,7 +13,7 @@ export const PILOT_FORM_URL = "https://t.me/zhurina_polina";
 export const CONTACT_EMAIL = "info@hvostun.com";
 
 // TODO: replace with Telegram channel/chat URL.
-export const TELEGRAM_URL = "https://t.me/delaemdobroedelo";
+export const TELEGRAM_URL = "https://t.me/hvostundog";
 
 // TODO: replace with approved privacy policy page or document URL.
 export const PRIVACY_POLICY_URL = "/privacy";
@@ -31,8 +31,6 @@ export const content = {
       { label: "Миссия", href: "/#mission" },
       { label: "Решение", href: "/#solution" },
       { label: "Полезное", href: "/#polezno" },
-      { label: "Исследование", href: "/#research" },
-      { label: "Пилот", href: "/#pilot" },
       { label: "Партнерство", href: "/#partnership" },
     ],
     cta: "Связаться",
@@ -87,14 +85,6 @@ export const content = {
       },
     ],
     ethicsNote: "Стресс не должен становиться привычным фоном жизни",
-  },
-
-  research: {
-    id: "research",
-    title: "Расскажите о первых\nнеделях дома",
-    text: "Если вы взяли собаку из приюта, с улицы, у волонтера или из другой семьи, поделитесь своим опытом. Ваши ответы помогут будущей модели опираться на реальные истории.",
-    cta: "Заполнить анкету",
-    duration: "Займет до 15 минут",
   },
 
   pilot: {

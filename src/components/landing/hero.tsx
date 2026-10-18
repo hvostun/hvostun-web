@@ -1,4 +1,4 @@
-import { content } from "@/lib/content";
+import { content, PILOT_FORM_URL, RESEARCH_FORM_URL } from "@/lib/content";
 import { CtaLink } from "./ui";
 import { Reveal } from "./reveal";
 import photoDog from "@/assets/hero-photo-dog.jpg.asset.json";
@@ -23,10 +23,10 @@ export function Hero() {
             {hero.subtitle}
           </p>
           <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <CtaLink href="#research" variant="cta" arrow>
+            <CtaLink href={RESEARCH_FORM_URL} variant="cta" arrow>
               {hero.primaryCta}
             </CtaLink>
-            <CtaLink href="#pilot" variant="outline">
+            <CtaLink href={PILOT_FORM_URL} variant="outline">
               {hero.secondaryCta}
             </CtaLink>
           </div>
