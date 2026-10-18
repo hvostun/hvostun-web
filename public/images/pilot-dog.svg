@@ -1,0 +1,34 @@
+<!-- TODO: replace with the final pilot illustration.
+     Temporary placeholder: light line-art on transparent background. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 720" role="img" aria-label="Собака осваивается в новом доме">
+  <!-- rug -->
+  <ellipse cx="480" cy="540" rx="280" ry="60" fill="none" stroke="#5FAEE3" stroke-width="5" opacity="0.7"/>
+
+  <!-- relaxed dog lying down -->
+  <g stroke="#203C43" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M330 500c0-52 60-84 140-84 84 0 150 32 150 84 0 30-30 46-70 46H400c-40 0-70-16-70-46z"/>
+    <circle cx="600" cy="452" r="42"/>
+    <path d="M572 424l-14-24M618 420l14-22"/>
+    <path d="M640 486c26 6 40 22 40 42"/>
+    <circle cx="612" cy="446" r="4" fill="#203C43" stroke="none"/>
+    <path d="M596 470c8 8 20 8 28 0"/>
+  </g>
+
+  <!-- small plant -->
+  <g stroke="#203C43" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.85">
+    <path d="M790 540h70l-10 70h-50z"/>
+    <path d="M825 540v-60M825 500c-20-4-30-20-28-38M825 490c20-6 26-24 22-40"/>
+  </g>
+
+  <!-- window -->
+  <rect x="640" y="140" width="180" height="200" rx="12" fill="none" stroke="#203C43" stroke-width="5" opacity="0.85"/>
+  <path d="M730 140v200M640 240h180" stroke="#203C43" stroke-width="4" opacity="0.85"/>
+  <path d="M560 320c40 40 40 100 0 140" stroke="#C9E56F" stroke-width="9" stroke-linecap="round" fill="none"/>
+
+  <!-- checklist card -->
+  <g>
+    <rect x="130" y="200" width="200" height="160" rx="12" fill="none" stroke="#203C43" stroke-width="5"/>
+    <path d="M160 240h90M160 280h120M160 320h70" stroke="#203C43" stroke-width="5" stroke-linecap="round"/>
+    <path d="M288 232l10 10 18-20" stroke="#5FAEE3" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </g>
+</svg>

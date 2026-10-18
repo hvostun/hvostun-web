@@ -1,0 +1,505 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Дизайн-система лендинга «Хвостун».
+ *
+ * Палитра (светлая, свежая):
+ *  --background   #FDFCF9  теплый почти белый, основной фон
+ *  --foreground   #17241C  почти черный с зеленым подтоном, основной текст
+ *  --primary      #173E27  глубокий темно-зеленый (темные секции, футер)
+ *  --accent       #447B3B  основной зеленый (primary CTA, метки, акценты)
+ *  --blue         #8FC3E5  свежий небесно-голубой (секции, акценты)
+ *  --tint-blue    #D8EAF4  очень светлый голубой (фон отдельных секций)
+ *
+ * Шрифты: Sora — заголовки (кириллица рендерится Manrope), Manrope — текст,
+ * кнопки, навигация. Literata italic — только цитаты владельцев и манифест.
+ *
+ * Принципы: без надзаголовков и капса; акцент в заголовке — одно слово цветом;
+ * зеленый accent — только действия и акцент; голубой blue — только на темном.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Sora", "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-quote: "Literata", Georgia, "Times New Roman", serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-blue: var(--blue);
+  --color-blue-foreground: var(--blue-foreground);
+  --color-tint-blue: var(--tint-blue);
+  --color-sand: var(--sand);
+  --color-coral: var(--coral);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+}
+
+:root {
+  --radius: 0.75rem;
+
+  /* #FDFCF9 теплый почти белый, на тон светлее предыдущего */
+  --background: oklch(0.992 0.004 100);
+  /* #17241C почти черный с зеленым подтоном */
+  --foreground: oklch(0.245 0.024 157.1);
+  --card: oklch(0.992 0.004 100);
+  --card-foreground: oklch(0.245 0.024 157.1);
+  --popover: oklch(0.992 0.004 100);
+  --popover-foreground: oklch(0.245 0.024 157.1);
+  /* #173E27 глубокий темно-зеленый */
+  --primary: oklch(0.328 0.061 155.1);
+  --primary-foreground: oklch(0.992 0.004 100);
+  /* #D8EAF4 очень светлый голубой */
+  --secondary: oklch(0.927 0.024 231.9);
+  --secondary-foreground: oklch(0.245 0.024 157.1);
+  --muted: oklch(0.927 0.024 231.9);
+  --muted-foreground: oklch(0.45 0.035 160);
+  /* #447B3B основной зеленый */
+  --accent: oklch(0.529 0.112 140.9);
+  --accent-foreground: oklch(0.992 0.004 100);
+  /* #8FC3E5 свежий небесно-голубой */
+  --blue: oklch(0.793 0.073 237.5);
+  --blue-foreground: oklch(0.328 0.061 155.1);
+  /* #D8EAF4 светлый холодный фон отдельных секций */
+  --tint-blue: oklch(0.927 0.024 231.9);
+  /* приглушенные акценты только для иллюстраций hero */
+  --sand: oklch(0.86 0.075 90);
+  --coral: oklch(0.78 0.07 40);
+
+  --destructive: oklch(0.577 0.215 27);
+  --destructive-foreground: oklch(0.992 0.004 100);
+  --border: oklch(0.245 0.024 157.1 / 14%);
+  --input: oklch(0.245 0.024 157.1 / 24%);
+  --ring: oklch(0.529 0.112 140.9);
+}
+
+.dark {
+  --background: oklch(0.24 0.03 157);
+  --foreground: oklch(0.992 0.004 100);
+  --card: oklch(0.28 0.032 157);
+  --card-foreground: oklch(0.992 0.004 100);
+  --popover: oklch(0.28 0.032 157);
+  --popover-foreground: oklch(0.992 0.004 100);
+  --primary: oklch(0.992 0.004 100);
+  --primary-foreground: oklch(0.328 0.061 155.1);
+  --secondary: oklch(0.33 0.03 200);
+  --secondary-foreground: oklch(0.992 0.004 100);
+  --muted: oklch(0.33 0.03 200);
+  --muted-foreground: oklch(0.8 0.02 200);
+  --accent: oklch(0.62 0.12 141);
+  --accent-foreground: oklch(0.245 0.024 157.1);
+  --blue: oklch(0.793 0.073 237.5);
+  --blue-foreground: oklch(0.328 0.061 155.1);
+  --tint-blue: oklch(0.3 0.03 220);
+  --sand: oklch(0.78 0.07 90);
+  --coral: oklch(0.7 0.07 40);
+
+  --destructive: oklch(0.704 0.191 22);
+  --destructive-foreground: oklch(0.992 0.004 100);
+  --border: oklch(0.992 0.004 100 / 14%);
+  --input: oklch(0.992 0.004 100 / 22%);
+  --ring: oklch(0.793 0.073 237.5);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Плёночная зернистость поверх всего сайта */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.2;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256' viewBox='0 0 256 256'%3E%3Cfilter id='noise' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: var(--color-accent-foreground);
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-ring);
+    outline-offset: 3px;
+    border-radius: var(--radius-sm);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* Заголовок hero */
+  .display-1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(2.75rem, 7.2vw, 6.25rem);
+    line-height: 0.96;
+    letter-spacing: -0.045em;
+    text-wrap: balance;
+  }
+
+  /* Заголовки секций */
+  .display-2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(2.125rem, 4.8vw, 4rem);
+    line-height: 1.04;
+    letter-spacing: -0.038em;
+    text-wrap: balance;
+  }
+
+  /* Кнопки: высота 54/42, радиус 10/9, без pill-формы и без теней */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.625rem;
+    min-height: 3.375rem;
+    border-radius: 10px;
+    border: 1.5px solid transparent;
+    padding: 0 1.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+      background-color 0.2s ease,
+      border-color 0.2s ease,
+      color 0.2s ease;
+  }
+
+  .btn-sm {
+    min-height: 2.625rem;
+    padding: 0 1.125rem;
+    font-size: 0.9375rem;
+    border-radius: 9px;
+  }
+
+  .btn-arrow {
+    transition: transform 0.2s ease;
+  }
+
+  .btn:hover .btn-arrow,
+  .text-link:hover .btn-arrow,
+  .card-link:hover .btn-arrow {
+    transform: translateX(3px);
+  }
+
+  /* Зеленая CTA-кнопка — primary на светлом фоне; при наведении темнеет до primary */
+  .btn-cta {
+    background-color: var(--color-accent);
+    color: var(--color-accent-foreground);
+  }
+
+  .btn-cta:hover {
+    background-color: var(--color-primary);
+  }
+
+  /* Светлая кнопка на темно-зеленом фоне */
+  .btn-ondark {
+    background-color: var(--color-background);
+    color: var(--color-primary);
+  }
+
+  .btn-ondark:hover {
+    background-color: var(--color-tint-blue);
+  }
+
+  /* Темная основная кнопка */
+  .btn-dark {
+    background-color: var(--color-primary);
+    color: var(--color-primary-foreground);
+  }
+
+  .btn-dark:hover {
+    background-color: color-mix(in oklab, var(--color-primary) 86%, var(--color-background));
+  }
+
+  /* Темно-зеленая кнопка — primary на голубом фоне */
+  .btn-blue {
+    background-color: var(--color-primary);
+    color: var(--color-primary-foreground);
+  }
+
+  .btn-blue:hover {
+    background-color: color-mix(in oklab, var(--color-primary) 86%, var(--color-accent));
+  }
+
+  /* Светлая кнопка на голубом фоне: молочная заливка, тонкая темно-зеленая рамка */
+  .btn-light {
+    background-color: var(--color-background);
+    color: var(--color-primary);
+    border: 1.5px solid color-mix(in oklab, var(--color-primary) 45%, transparent);
+  }
+
+  .btn-light:hover {
+    border-color: var(--color-primary);
+    background-color: color-mix(in oklab, var(--color-background) 88%, var(--color-tint-blue));
+  }
+
+  /* Контурная кнопка: прозрачный фон, тонкая рамка цвета текста */
+  .btn-outline {
+    background-color: transparent;
+    color: var(--color-foreground);
+    border: 1.5px solid color-mix(in oklab, var(--color-foreground) 32%, transparent);
+  }
+
+  .btn-outline:hover {
+    border-color: var(--color-foreground);
+    background-color: color-mix(in oklab, var(--color-foreground) 4%, transparent);
+  }
+
+  /* Контурная кнопка на темном фоне */
+  .btn-outline-invert {
+    background-color: transparent;
+    color: var(--color-primary-foreground);
+    border: 1.5px solid color-mix(in oklab, var(--color-primary-foreground) 45%, transparent);
+  }
+
+  .btn-outline-invert:hover {
+    border-color: var(--color-primary-foreground);
+  }
+
+  /* Текстовая ссылка со стрелкой и тонким подчеркиванием */
+  .text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-bottom: 0.25rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-decoration: none;
+    border-bottom: 1.5px solid color-mix(in oklab, var(--color-primary) 30%, transparent);
+    transition: border-color 0.2s ease;
+  }
+
+  .text-link:hover {
+    border-bottom-color: var(--color-primary);
+  }
+
+  /* Карточка-ссылка: при наведении слегка поднимается */
+  .card-link {
+    text-decoration: none;
+    color: inherit;
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease,
+      border-color 0.25s ease;
+  }
+
+  .card-link:hover {
+    transform: translateY(-3px);
+    border-color: color-mix(in oklab, var(--color-foreground) 28%, transparent);
+    box-shadow: 0 24px 48px -32px color-mix(in oklab, var(--color-foreground) 45%, transparent);
+  }
+
+  /* Фотокарточка: белое поле, шире снизу, мягкая тень */
+  .photo-print {
+    position: relative;
+    background-color: #fbfbf8;
+    padding: 10px 10px 44px;
+    box-shadow:
+      0 2px 4px color-mix(in oklab, var(--color-foreground) 6%, transparent),
+      0 36px 64px -36px color-mix(in oklab, var(--color-foreground) 60%, transparent);
+  }
+
+  /* Фотокарточка без подписи — ровное поле со всех сторон */
+  .photo-print--plain {
+    padding: 10px;
+  }
+
+  .photo-print--dark {
+    box-shadow: 0 32px 60px -28px rgb(0 0 0 / 0.6);
+  }
+
+  .photo-print-caption {
+    position: absolute;
+    left: 16px;
+    bottom: 13px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: color-mix(in oklab, var(--color-foreground) 62%, transparent);
+  }
+
+  /* Плавное появление секций (отключается prefers-reduced-motion выше) */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 0.6s ease,
+      transform 0.6s ease;
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Фотополоска из фотобудки */
+  .photo-strip {
+    position: relative;
+    background-color: color-mix(in oklab, var(--color-background) 92%, #f5f1e8);
+    padding: 0.55rem 0.55rem 2.2rem;
+    border: 1px solid color-mix(in oklab, var(--color-primary) 12%, transparent);
+    border-radius: 3px;
+    box-shadow: 0 18px 34px -22px color-mix(in oklab, var(--color-primary) 70%, transparent);
+    transform: rotate(-3deg);
+    transition:
+      transform 0.35s ease,
+      box-shadow 0.35s ease;
+  }
+
+  .photo-strip::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.14;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .photo-strip--row {
+    transform: rotate(-1.5deg);
+    padding: 0.5rem 0.5rem 1.9rem;
+  }
+
+  .photo-strip:hover {
+    transform: rotate(-1deg) translateY(-3px);
+  }
+
+  .photo-strip-frame {
+    overflow: hidden;
+    background-color: color-mix(in oklab, var(--color-primary) 8%, transparent);
+    border-radius: 1px;
+  }
+
+  .photo-strip-caption {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 0.75rem;
+    letter-spacing: 0.01em;
+    color: color-mix(in oklab, var(--color-foreground) 70%, transparent);
+    transform: rotate(-1.2deg);
+  }
+
+  /* Полупрозрачный бумажный скотч сверху */
+  .photo-strip-tape {
+    position: absolute;
+    top: -0.55rem;
+    left: 50%;
+    width: 3.6rem;
+    height: 1.05rem;
+    transform: translateX(-50%) rotate(-4deg);
+    background-color: color-mix(in oklab, #f2eedf 70%, transparent);
+    border-left: 1px dashed color-mix(in oklab, var(--color-primary) 16%, transparent);
+    border-right: 1px dashed color-mix(in oklab, var(--color-primary) 16%, transparent);
+    opacity: 0.75;
+  }
+}
+
+@layer utilities {
+  /* Появление декоративных слоев hero */
+  @keyframes hero-appear {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .hero-appear {
+    animation: hero-appear 0.7s ease both;
+  }
+
+  .hero-appear--late {
+    animation-delay: 0.18s;
+  }
+
+  /* Очень медленное движение одной рисованной линии */
+  @keyframes drift-line {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(3px);
+    }
+  }
+
+  .drift-line {
+    animation: drift-line 11s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-appear,
+    .drift-line {
+      animation: none !important;
+    }
+  }
+}
+

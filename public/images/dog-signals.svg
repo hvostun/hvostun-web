@@ -1,0 +1,46 @@
+<!-- TODO: replace with the final illustration of dog state signals.
+     Temporary placeholder: light line-art on transparent background. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" role="img" aria-label="Сцены состояния собаки в новом доме">
+  <!-- scene 1: dog by the bowl, not eating -->
+  <g stroke="#203C43" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.85">
+    <ellipse cx="200" cy="330" rx="60" ry="42"/>
+    <circle cx="248" cy="292" r="26"/>
+    <path d="M232 274l-8-16M262 272l10-14"/>
+    <path d="M150 336c-24 4-38 18-40 38"/>
+    <path d="M240 372v26M196 372v26"/>
+  </g>
+  <ellipse cx="352" cy="392" rx="46" ry="14" fill="none" stroke="#203C43" stroke-width="5" opacity="0.85"/>
+
+  <!-- scene 2: dog near the door, hesitant -->
+  <g stroke="#203C43" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.85">
+    <rect x="470" y="150" width="120" height="200" rx="10"/>
+    <circle cx="566" cy="248" r="6" fill="#203C43" stroke="none"/>
+    <ellipse cx="430" cy="350" rx="52" ry="36"/>
+    <circle cx="468" cy="318" r="22"/>
+    <path d="M452 302l-10-14M480 300l8-14"/>
+    <path d="M382 352c-20 6-30 20-30 36"/>
+    <path d="M460 386v22M424 386v22"/>
+  </g>
+  <path d="M610 200c30 20 30 60 0 80" stroke="#5FAEE3" stroke-width="8" stroke-linecap="round" fill="none"/>
+
+  <!-- scene 3: pacing dog -->
+  <g stroke="#203C43" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.85">
+    <ellipse cx="720" cy="210" rx="58" ry="40"/>
+    <circle cx="766" cy="176" r="24"/>
+    <path d="M748 160l-10-14M776 158l10-12"/>
+    <path d="M668 214c-22 4-36 16-38 34"/>
+    <path d="M756 250v24M712 250v24"/>
+  </g>
+
+  <!-- scene 4: person sitting calmly with dog -->
+  <g stroke="#203C43" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.85">
+    <circle cx="320" cy="486" r="22"/>
+    <path d="M320 508v60M320 528l-40 30M320 528l44 22M306 568l-20 42M336 566l24 42"/>
+    <ellipse cx="470" cy="556" rx="54" ry="38"/>
+    <circle cx="514" cy="524" r="23"/>
+    <path d="M498 508l-9-14M524 506l9-12"/>
+    <path d="M420 560c-22 4-34 18-34 34"/>
+    <path d="M508 592v22M466 592v22"/>
+  </g>
+  <path d="M370 470c24-18 60-18 84 2" stroke="#C9E56F" stroke-width="8" stroke-linecap="round" fill="none"/>
+</svg>
