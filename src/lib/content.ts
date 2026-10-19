@@ -7,7 +7,7 @@
 
 // TODO: вставить ссылки на Яндекс-формы 0, 1 и 2.
 export const RESEARCH_FORM_URLS = {
-  under5: "https://forms.yandex.ru/TODO-form-0",
+  under5: "https://forms.yandex.ru/u/6ad5e89f95add5bbd5eae18e",
   from5to14: "https://forms.yandex.ru/u/6a7f4c8b4936398f0aeaa1d2",
   over14: "https://forms.yandex.ru/cloud/6ac4a42fe010dbf372a1dc3c/",
 } as const;
