@@ -52,7 +52,7 @@ type CtaLinkProps = {
 };
 
 /**
- * Ссылка-кнопка. Внутренние якоря (#...) открываются в той же вкладке,
+ * Ссылка-кнопка. Внутренние ссылки (#..., /...) открываются в той же вкладке,
  * внешние формы — в новой вкладке с безопасными rel-атрибутами.
  */
 export function CtaLink({
@@ -63,7 +63,7 @@ export function CtaLink({
   className = "",
   children,
 }: CtaLinkProps) {
-  const isAnchor = href.startsWith("#") || href.startsWith("/#");
+  const isAnchor = href.startsWith("#") || href.startsWith("/");
   return (
     <a
       href={href}

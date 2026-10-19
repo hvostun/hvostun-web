@@ -11,7 +11,9 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ConsentRouteImport } from './routes/consent'
+import { Route as PpdRouteImport } from './routes/ppd'
 import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as ResearchRouteImport } from './routes/research'
 import { Route as PoleznoPervyeDniDomaRouteImport } from './routes/polezno.pervye-dni-doma'
 
 const IndexRoute = IndexRouteImport.update({
@@ -24,9 +26,19 @@ const ConsentRoute = ConsentRouteImport.update({
   path: '/consent',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PpdRoute = PpdRouteImport.update({
+  id: '/ppd',
+  path: '/ppd',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResearchRoute = ResearchRouteImport.update({
+  id: '/research',
+  path: '/research',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PoleznoPervyeDniDomaRoute = PoleznoPervyeDniDomaRouteImport.update({
@@ -38,34 +50,61 @@ const PoleznoPervyeDniDomaRoute = PoleznoPervyeDniDomaRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/consent': typeof ConsentRoute
+  '/ppd': typeof PpdRoute
   '/privacy': typeof PrivacyRoute
+  '/research': typeof ResearchRoute
   '/polezno/pervye-dni-doma': typeof PoleznoPervyeDniDomaRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/consent': typeof ConsentRoute
+  '/ppd': typeof PpdRoute
   '/privacy': typeof PrivacyRoute
+  '/research': typeof ResearchRoute
   '/polezno/pervye-dni-doma': typeof PoleznoPervyeDniDomaRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/consent': typeof ConsentRoute
+  '/ppd': typeof PpdRoute
   '/privacy': typeof PrivacyRoute
+  '/research': typeof ResearchRoute
   '/polezno/pervye-dni-doma': typeof PoleznoPervyeDniDomaRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/consent' | '/privacy' | '/polezno/pervye-dni-doma'
+  fullPaths:
+    | '/'
+    | '/consent'
+    | '/ppd'
+    | '/privacy'
+    | '/research'
+    | '/polezno/pervye-dni-doma'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/consent' | '/privacy' | '/polezno/pervye-dni-doma'
-  id: '__root__' | '/' | '/consent' | '/privacy' | '/polezno/pervye-dni-doma'
+  to:
+    | '/'
+    | '/consent'
+    | '/ppd'
+    | '/privacy'
+    | '/research'
+    | '/polezno/pervye-dni-doma'
+  id:
+    | '__root__'
+    | '/'
+    | '/consent'
+    | '/ppd'
+    | '/privacy'
+    | '/research'
+    | '/polezno/pervye-dni-doma'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ConsentRoute: typeof ConsentRoute
+  PpdRoute: typeof PpdRoute
   PrivacyRoute: typeof PrivacyRoute
+  ResearchRoute: typeof ResearchRoute
   PoleznoPervyeDniDomaRoute: typeof PoleznoPervyeDniDomaRoute
 }
 
@@ -85,11 +124,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ConsentRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ppd': {
+      id: '/ppd'
+      path: '/ppd'
+      fullPath: '/ppd'
+      preLoaderRoute: typeof PpdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/privacy': {
       id: '/privacy'
       path: '/privacy'
       fullPath: '/privacy'
       preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/research': {
+      id: '/research'
+      path: '/research'
+      fullPath: '/research'
+      preLoaderRoute: typeof ResearchRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/polezno/pervye-dni-doma': {
@@ -105,7 +158,9 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ConsentRoute: ConsentRoute,
+  PpdRoute: PpdRoute,
   PrivacyRoute: PrivacyRoute,
+  ResearchRoute: ResearchRoute,
   PoleznoPervyeDniDomaRoute: PoleznoPervyeDniDomaRoute,
 }
 export const routeTree = rootRouteImport

@@ -1,4 +1,4 @@
-import { content, PILOT_FORM_URL, RESEARCH_FORM_URL } from "@/lib/content";
+import { content, PILOT_FORM_URL } from "@/lib/content";
 import { CtaLink } from "./ui";
 import { Reveal } from "./reveal";
 const photoDogSrc = "/images/sasha-matveeva-Dpxf-0d_BIc-unsplash.jpg";
@@ -23,7 +23,7 @@ export function Hero() {
             {hero.subtitle}
           </p>
           <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <CtaLink href={RESEARCH_FORM_URL} variant="cta" arrow>
+            <CtaLink href="/research" variant="cta" arrow>
               {hero.primaryCta}
             </CtaLink>
             <CtaLink href={PILOT_FORM_URL} variant="outline">

@@ -5,7 +5,12 @@
  * В описательных текстах продукт называется «сервис» до получения прав на название.
  */
 
-export const RESEARCH_FORM_URL = "https://t.me/lilya_te?text=%D0%93%D0%BE%D1%82%D0%BE%D0%B2%28-%D0%B0%29%20%D1%83%D1%87%D0%B0%D1%81%D1%82%D0%B2%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D0%B2%20%D0%B8%D1%81%D1%81%D0%BB%D0%B5%D0%B4%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B8%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0%20%D0%A5%D0%B2%D0%BE%D1%81%D1%82%D1%83%D0%BD.";
+// TODO: вставить ссылки на Яндекс-формы 0, 1 и 2.
+export const RESEARCH_FORM_URLS = {
+  under5: "https://forms.yandex.ru/TODO-form-0",
+  from5to14: "https://forms.yandex.ru/u/6a7f4c8b4936398f0aeaa1d2",
+  over14: "https://forms.yandex.ru/cloud/6ac4a42fe010dbf372a1dc3c/",
+} as const;
 
 export const PILOT_FORM_URL = "https://t.me/zhurina_polina";
 
@@ -49,6 +54,16 @@ export const content = {
       "Рисованная иллюстрация: взрослая собака и молодая собака сидят рядом возле маленького домика",
     photoAlt: "Собака крупным планом на фоне вечернего неба",
     photoCaption: "первые недели дома",
+  },
+
+  researchQuiz: {
+    title: "Когда вы взяли собаку?",
+    text: "Ответ поможет подобрать подходящую анкету.",
+    options: [
+      { value: "under5", label: "Менее 5 дней назад" },
+      { value: "from5to14", label: "От 5 до 14 дней назад" },
+      { value: "over14", label: "Более 14 дней назад" },
+    ],
   },
 
   mission: {
