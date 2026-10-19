@@ -1,8 +1,10 @@
 import { Link } from "@tanstack/react-router";
-import usefulDogAsset from "@/assets/useful-dog-stretch.png.asset.json";
 import { content } from "@/lib/content";
 import { Arrow } from "./ui";
 import { Reveal } from "./reveal";
+
+const usefulDogSrc =
+  "/images/victoria-mayorova-kr3f0g-yNsI-unsplash.jpg";
 
 /** «Полезное»: вся карточка — ссылка на статью; справа иллюстрация на голубом */
 export function UsefulSection() {
@@ -37,7 +39,7 @@ export function UsefulSection() {
             <div className="flex items-center justify-center bg-tint-blue p-8 sm:p-10">
               {/* multiply: светлый фон иллюстрации сливается с голубым */}
               <img
-                src={usefulDogAsset.url}
+                src={usefulDogSrc}
                 alt={useful.imageAlt}
                 width={320}
                 height={320}

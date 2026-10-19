@@ -11,20 +11,22 @@ bun run dev
 
 ## Доступ снаружи через tuna
 
-tuna пробрасывает локальный `dev`-сервер.
+Cloudflare / Wrangler не нужны — tuna пробрасывает локальный `dev`-сервер.
 
 CLI ставится отдельно: [установка tuna](https://tuna.am/docs/guides/install/install-cli/). Docker не нужен.
 
-Скопируй пример и заполни токен и домен из личного кабинета tuna:
+Скопируй пример и заполни `.env`:
 
 ```bash
 cp .env.example .env
 ```
 
-`.env` в git не попадает. Нужны две переменные:
+Нужны `TUNA_TOKEN` и **один** из вариантов:
 
-- `TUNA_TOKEN` — токен аккаунта
-- `TUNA_DOMAIN` — зарезервированный домен, например `brave-otter-4821.ru.tuna.am`
+- `TUNA_DOMAIN` — свой домен (`tuna http 5173 --domain=…`)
+- `TUNA_SUBDOMAIN` — поддомен tuna (`tuna http 5173 --subdomain=…`)
+
+Опционально: `TUNA_LOCATION` (`ru` или `nl`).
 
 В одном терминале подними сайт, в другом — туннель:
 
@@ -33,4 +35,4 @@ bun run dev
 bun run tunnel
 ```
 
-Скрипт `scripts/tunnel.sh` читает `.env` и запускает `tuna http 5173`. Пока оба процесса работают, сайт открывается по `TUNA_DOMAIN`. Остановил их — адрес перестаёт отвечать.
+Пока оба процесса работают, сайт открывается по адресу tuna. Остановил их — адрес перестаёт отвечать.

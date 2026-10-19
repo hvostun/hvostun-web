@@ -1,7 +1,9 @@
-import partnerDogAsset from "@/assets/partner-dog-new.png.asset.json";
 import { CONTACT_EMAIL, content } from "@/lib/content";
 import { CtaLink, SectionHeading } from "./ui";
 import { Reveal } from "./reveal";
+
+const partnerDogSrc =
+  "/images/dog_with_laptop.png";
 
 /** Партнерство: заголовок, список «кто — для чего», контакты и иллюстрация на «столе» */
 export function PartnersSection() {
@@ -46,7 +48,7 @@ export function PartnersSection() {
 
         <div className="flex flex-col items-center">
           <img
-            src={partnerDogAsset.url}
+            src={partnerDogSrc}
             alt="Собака с ноутбуком"
             width={320}
             height={320}

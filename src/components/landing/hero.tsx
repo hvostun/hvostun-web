@@ -1,8 +1,8 @@
 import { content, PILOT_FORM_URL, RESEARCH_FORM_URL } from "@/lib/content";
 import { CtaLink } from "./ui";
 import { Reveal } from "./reveal";
-import photoDog from "@/assets/hero-photo-dog.jpg.asset.json";
-import flower from "@/assets/hero-flower.png.asset.json";
+const photoDogSrc = "/images/sasha-matveeva-Dpxf-0d_BIc-unsplash.jpg";
+const flowerSrc = "/images/hvostun_logo.png";
 
 /**
  * Первый экран: асимметричная композиция.
@@ -36,7 +36,7 @@ export function Hero() {
           <figure className="relative w-full max-w-[340px] -rotate-[2.5deg] sm:max-w-[460px]">
             <div className="photo-print">
               <img
-                src={photoDog.url}
+                src={photoDogSrc}
                 alt={hero.photoAlt}
                 width={590}
                 height={474}
@@ -45,7 +45,7 @@ export function Hero() {
               <figcaption className="photo-print-caption">{hero.photoCaption}</figcaption>
             </div>
             <img
-              src={flower.url}
+              src={flowerSrc}
               alt=""
               aria-hidden="true"
               width={160}

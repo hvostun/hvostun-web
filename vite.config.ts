@@ -14,7 +14,11 @@ export default defineConfig({
   },
   vite: {
     server: {
+      // 8080 занят локальной БД
       port: 5173,
+      // tuna tunnel (*.tuna.am) и свой TUNA_DOMAIN
+      allowedHosts: true,
     },
   },
 });
+

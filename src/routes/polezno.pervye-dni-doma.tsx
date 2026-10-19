@@ -5,9 +5,6 @@ import { SiteFooter } from "@/components/landing/site-footer";
 import { CtaLink } from "@/components/landing/ui";
 import { ArticleFigure } from "@/components/article/article-figure";
 import { content, PILOT_FORM_URL } from "@/lib/content";
-import articleHeroDog from "@/assets/article-hero-dog.jpg.asset.json";
-import articleRestDog from "@/assets/article-rest-dog.jpg.asset.json";
-
 const TITLE = "У вас появилась собака из приюта. Что делать?";
 const LEAD =
   "Первые недели после переезда — самые важные. Рассказываем, как подготовить дом и помочь собаке почувствовать себя в безопасности.";
@@ -18,8 +15,8 @@ const READING_TIME = "4 минуты чтения";
 
 /** Изображения: подставьте src, когда они будут готовы */
 const IMAGES = {
-  hero: articleHeroDog.url,
-  rest: articleRestDog.url,
+  hero: "/images/maurice-dt--GvI1Y2Cw08-unsplash.jpg",
+  rest: "/images/maurice-dt-C7g--tKpd1A-unsplash.jpg",
 };
 
 export const Route = createFileRoute("/polezno/pervye-dni-doma")({
