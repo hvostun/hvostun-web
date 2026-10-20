@@ -15,7 +15,7 @@ export function MissionSection() {
         <Reveal>
           <SectionHeading id="mission-title" title={mission.title} />
         </Reveal>
-        <Reveal delay={100} className="flex flex-col gap-7 lg:pt-2">
+        <Reveal delay={100} className="flex flex-col gap-7">
           <p className="text-base leading-relaxed text-pretty text-foreground/75 sm:text-lg">
             {mission.textLeft}
           </p>
@@ -74,7 +74,7 @@ export function SolutionSection() {
         className="scroll-mt-20 py-16 sm:py-24 lg:py-32"
       >
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <Reveal className="split lg:items-end">
+          <Reveal className="split lg:items-start">
             <SectionHeading id="solution-title" title={solution.title} />
             <p className="text-base leading-relaxed text-pretty text-foreground/75 sm:text-lg">
               {solution.intro}
