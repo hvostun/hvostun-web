@@ -203,6 +203,23 @@
     text-wrap: balance;
   }
 
+  /*
+   * Общая сетка «заголовок слева — текст справа».
+   * Одна и та же во всех секциях, чтобы текст начинался с единой вертикали
+   * (миссия, вступление к решению, описания этапов).
+   */
+  .split {
+    display: grid;
+    row-gap: 1.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    .split {
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      column-gap: 3rem;
+    }
+  }
+
   /* Кнопки: высота 54/42, радиус 10/9, без pill-формы и без теней */
   .btn {
     display: inline-flex;

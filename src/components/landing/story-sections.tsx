@@ -11,7 +11,7 @@ export function MissionSection() {
       aria-labelledby="mission-title"
       className="scroll-mt-20 bg-tint-blue py-16 sm:py-24 lg:py-32"
     >
-      <div className="mx-auto grid max-w-6xl gap-8 px-4 sm:gap-10 sm:px-6 lg:grid-cols-[1fr_1.25fr] lg:gap-20">
+      <div className="split mx-auto max-w-6xl gap-y-8 px-4 sm:gap-y-10 sm:px-6">
         <Reveal>
           <SectionHeading id="mission-title" title={mission.title} />
         </Reveal>
@@ -74,7 +74,7 @@ export function SolutionSection() {
         className="scroll-mt-20 py-16 sm:py-24 lg:py-32"
       >
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <Reveal className="grid gap-6 lg:grid-cols-2 lg:items-end lg:gap-16">
+          <Reveal className="split lg:items-end">
             <SectionHeading id="solution-title" title={solution.title} />
             <p className="text-base leading-relaxed text-pretty text-foreground/75 sm:text-lg">
               {solution.intro}
@@ -87,19 +87,20 @@ export function SolutionSection() {
                 as="li"
                 key={step.title}
                 delay={i * 80}
-                className="grid grid-cols-[2.75rem_minmax(0,1fr)] items-baseline gap-x-4 border-t border-foreground/15 py-6 sm:grid-cols-[5.5rem_minmax(0,1fr)] sm:gap-x-8 sm:py-8"
+                className="split items-baseline gap-y-2 border-t border-foreground/15 py-6 sm:py-8"
               >
-                <span className="text-[1.625rem] font-medium leading-none tracking-[-0.03em] tabular-nums text-accent sm:text-[2.375rem]">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <div className="grid gap-2 md:grid-cols-[1fr_1.4fr] md:gap-8">
+                {/* Левая колонка: номер и название; правая — описание на той же вертикали, что и тексты выше */}
+                <div className="flex items-baseline gap-4 sm:gap-8">
+                  <span className="w-[2.75rem] shrink-0 text-[1.625rem] font-medium leading-none tracking-[-0.03em] tabular-nums text-accent sm:w-[5.5rem] sm:text-[2.375rem]">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
                   <h3 className="font-display text-xl font-semibold tracking-[-0.02em] text-foreground sm:text-2xl">
                     {step.title}
                   </h3>
-                  <p className="text-base leading-relaxed text-pretty text-foreground/75 sm:text-[17px]">
-                    {step.text}
-                  </p>
                 </div>
+                <p className="pl-[calc(2.75rem+1rem)] text-base leading-relaxed text-pretty text-foreground/75 sm:pl-[calc(5.5rem+2rem)] sm:text-[17px] lg:pl-0">
+                  {step.text}
+                </p>
               </Reveal>
             ))}
           </ol>
