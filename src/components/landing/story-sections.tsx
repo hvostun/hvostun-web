@@ -87,18 +87,19 @@ export function SolutionSection() {
                 as="li"
                 key={step.title}
                 delay={i * 80}
-                className="split items-baseline gap-y-2 border-t border-foreground/15 py-6 sm:py-8"
+                className="split step-row border-t border-foreground/15"
               >
-                {/* Левая колонка: номер и название; правая — описание на той же вертикали, что и тексты выше */}
-                <div className="flex items-baseline gap-4 sm:gap-8">
-                  <span className="w-[2.75rem] shrink-0 text-[1.625rem] font-medium leading-none tracking-[-0.03em] tabular-nums text-accent sm:w-[5.5rem] sm:text-[2.375rem]">
+                {/* Левая колонка: номер и название; правая — описание на той же вертикали, что и тексты выше.
+                    Все три начинаются на одном уровне по верхней границе букв (см. .step-row в styles.css) */}
+                <div className="step-row-lead gap-4 sm:gap-8">
+                  <span className="trim-cap w-[2.75rem] shrink-0 text-[1.625rem] font-medium leading-none tracking-[-0.03em] tabular-nums text-accent sm:w-[5.5rem] sm:text-[2.375rem]">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <h3 className="font-display text-xl font-semibold tracking-[-0.02em] text-foreground sm:text-2xl">
+                  <h3 className="trim-cap font-display text-xl font-semibold tracking-[-0.02em] text-foreground sm:text-2xl">
                     {step.title}
                   </h3>
                 </div>
-                <p className="pl-[calc(2.75rem+1rem)] text-base leading-relaxed text-pretty text-foreground/75 sm:pl-[calc(5.5rem+2rem)] sm:text-[17px] lg:pl-0">
+                <p className="trim-cap pl-[calc(2.75rem+1rem)] text-base leading-relaxed text-pretty text-foreground/75 sm:pl-[calc(5.5rem+2rem)] sm:text-[17px] lg:pl-0">
                   {step.text}
                 </p>
               </Reveal>
