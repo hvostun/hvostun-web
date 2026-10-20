@@ -203,6 +203,68 @@
     text-wrap: balance;
   }
 
+  /*
+   * Общая сетка «заголовок слева — текст справа».
+   * Одна и та же во всех секциях, чтобы текст начинался с единой вертикали
+   * (миссия, вступление к решению, описания этапов).
+   */
+  .split {
+    display: grid;
+    row-gap: 1.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    .split {
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      column-gap: 3rem;
+    }
+  }
+
+  /*
+   * Строка этапа: номер, название и описание стоят на одном уровне
+   * по верхней границе букв. text-box обрезает пустое место над буквами,
+   * поэтому разные размеры шрифта начинаются с одной линии.
+   * Браузеры без поддержки text-box выравнивают по базовой линии.
+   */
+  .step-row {
+    align-items: baseline;
+    row-gap: 0.5rem;
+    padding-block: 1.5rem;
+  }
+
+  .step-row-lead {
+    display: flex;
+    align-items: baseline;
+  }
+
+  @media (min-width: 640px) {
+    .step-row {
+      padding-block: 2rem;
+    }
+  }
+
+  @supports (text-box: trim-both cap alphabetic) {
+    .step-row,
+    .step-row-lead {
+      align-items: start;
+    }
+
+    .step-row {
+      row-gap: 0.875rem;
+      padding-block: 2rem;
+    }
+
+    .step-row .trim-cap {
+      text-box: trim-both cap alphabetic;
+    }
+
+    @media (min-width: 640px) {
+      .step-row {
+        padding-block: 2.75rem;
+      }
+    }
+  }
+
   /* Кнопки: высота 54/42, радиус 10/9, без pill-формы и без теней */
   .btn {
     display: inline-flex;
