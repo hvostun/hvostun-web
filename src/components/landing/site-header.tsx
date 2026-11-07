@@ -15,7 +15,7 @@ export function SiteHeader() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur-md">
+    <header className="sticky top-0 z-50 bg-background/90 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-6 px-4 sm:h-[4.5rem] sm:px-6">
         <Logo />
 
@@ -36,7 +36,7 @@ export function SiteHeader() {
         </nav>
 
         <div className="hidden lg:block">
-          <CtaLink href={content.nav.ctaHref} variant="cta" size="sm">
+          <CtaLink href={content.nav.ctaHref} variant="white" size="sm">
             {content.nav.cta}
           </CtaLink>
         </div>
@@ -44,7 +44,7 @@ export function SiteHeader() {
         {/* Компактное меню — только на мобильных */}
         <button
           type="button"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-border text-foreground lg:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-card text-foreground shadow-[var(--shadow-chip)] lg:hidden"
           aria-expanded={open}
           aria-controls="mobile-menu"
           aria-label={open ? "Закрыть меню" : "Открыть меню"}

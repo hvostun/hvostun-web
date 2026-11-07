@@ -15,18 +15,15 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
+    <div className="flex min-h-screen items-center justify-center bg-primary px-4">
       <div className="max-w-md text-center">
-        <h1 className="font-display text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Страница не найдена</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
+        <h1 className="font-display text-[7.5rem] font-bold leading-none text-lime">404</h1>
+        <h2 className="mt-4 text-[1.375rem] font-semibold text-primary-foreground">Страница не найдена</h2>
+        <p className="mt-2 text-[15px] text-blue">
           Возможно, страница была перемещена или ее не существует.
         </p>
-        <div className="mt-6">
-          <Link
-            to="/"
-            className="inline-flex items-center justify-center rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-          >
+        <div className="mt-7">
+          <Link to="/" className="btn btn-lime">
             На главную
           </Link>
         </div>
@@ -63,7 +60,7 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
           </button>
           <a
             href="/"
-            className="inline-flex items-center justify-center rounded-full border border-input bg-background px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-accent"
+            className="inline-flex items-center justify-center rounded-full border border-input bg-background px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-muted"
           >
             На главную
           </a>
@@ -78,14 +75,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Хвостун — поддержка адаптации собаки в новом доме" },
+      { title: "Hvostun — поддержка адаптации собаки в новом доме" },
       {
         name: "description",
         content:
           "Исследовательский сервис для владельцев собак: оценка возможных рисков, персональный план первых недель и поддержка на основе материалов по гуманной кинологии",
       },
       { property: "og:type", content: "website" },
-      { property: "og:site_name", content: "Хвостун" },
+      { property: "og:site_name", content: "Hvostun" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
@@ -94,12 +91,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: appCss,
       },
       { rel: "icon", href: "/favicon.png", type: "image/png" },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Literata:ital,wght@1,400&family=Manrope:wght@400;500;600;700&family=Sora:wght@600;700&display=swap",
-      },
+      // Шрифты первого экрана — заранее, чтобы заголовок и текст сразу были своим шрифтом
+      { rel: "preload", href: "/fonts/oswald-cyr-lat.woff2", as: "font", type: "font/woff2", crossOrigin: "anonymous" },
+      { rel: "preload", href: "/fonts/onest-cyr-lat.woff2", as: "font", type: "font/woff2", crossOrigin: "anonymous" },
     ],
   }),
   shellComponent: RootShell,

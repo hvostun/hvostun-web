@@ -1,53 +1,31 @@
-import { Link } from "@tanstack/react-router";
 import { content } from "@/lib/content";
-import { Arrow } from "./ui";
+import { CtaLink } from "./ui";
 import { Reveal } from "./reveal";
 
-const usefulDogSrc =
-  "/images/victoria-mayorova-kr3f0g-yNsI-unsplash.jpg";
-
-/** «Полезное»: вся карточка — ссылка на статью; справа иллюстрация на голубом */
+/** «Полезное»: голубой блок — заголовок слева, текст и кнопка справа, без картинки */
 export function UsefulSection() {
   const { useful } = content;
   return (
     <section
       id={useful.id}
       aria-labelledby="polezno-title"
-      className="scroll-mt-20 py-16 sm:py-24 lg:py-28"
+      className="scroll-mt-20 pb-16 sm:pb-24 lg:pb-28"
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <Reveal>
-          <Link
-            to="/polezno/pervye-dni-doma"
-            className="card-link grid overflow-hidden rounded-[18px] border border-foreground/15 bg-card lg:grid-cols-[1.3fr_1fr]"
-          >
-            <div className="flex flex-col justify-between gap-8 p-7 sm:p-10 lg:p-14">
-              <div className="flex flex-col gap-4">
-                <h2 id="polezno-title" className="display-2 text-foreground">
-                  {useful.title}
-                </h2>
-                <p className="max-w-[460px] text-base leading-relaxed text-pretty text-foreground/75 sm:text-lg">
-                  {useful.text}
-                </p>
-              </div>
-              <span className="text-link self-start">
+        <Reveal className="color-block color-block--tint">
+          <div className="split inset-x lg:items-start">
+            <h2 id="polezno-title" className="display-2 whitespace-pre-line text-primary">
+              {useful.title}
+            </h2>
+            <div className="flex flex-col items-start gap-7">
+              <p className="text-lg leading-relaxed text-pretty text-foreground sm:text-[1.1875rem]">
+                {useful.text}
+              </p>
+              <CtaLink href="/polezno" variant="white" arrow>
                 {useful.cta}
-                <Arrow />
-              </span>
+              </CtaLink>
             </div>
-
-            <div className="flex items-center justify-center bg-tint-blue p-8 sm:p-10">
-              {/* multiply: светлый фон иллюстрации сливается с голубым */}
-              <img
-                src={usefulDogSrc}
-                alt={useful.imageAlt}
-                width={320}
-                height={320}
-                className="h-auto w-48 object-contain mix-blend-multiply sm:w-64 lg:w-72"
-                loading="lazy"
-              />
-            </div>
-          </Link>
+          </div>
         </Reveal>
       </div>
     </section>

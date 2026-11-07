@@ -2,15 +2,14 @@ import { SITE_NAME } from "@/lib/content";
 
 /**
  * Общие элементы интерфейса лендинга: текстовый логотип, CTA-ссылки,
- * заголовки секций. Без надзаголовков и капса: иерархию держат размер
- * и вес заголовка, акцент — одно слово цветом.
+ * заголовки секций. Заголовки — Oswald капсом синим, без надзаголовков.
  */
 
 export function Logo({ inverted = false }: { inverted?: boolean }) {
   return (
     <a
       href="/#top"
-      className={`font-display text-[1.375rem] font-bold tracking-[-0.035em] ${
+      className={`font-sans text-[1.375rem] font-bold tracking-[-0.03em] ${
         inverted ? "text-primary-foreground" : "text-foreground"
       }`}
       aria-label={`${SITE_NAME} — на начало страницы`}
@@ -44,7 +43,17 @@ export function Arrow() {
 
 type CtaLinkProps = {
   href: string;
-  variant?: "cta" | "dark" | "blue" | "light" | "outline" | "outline-invert" | "ondark";
+  variant?:
+    | "cta"
+    | "lime"
+    | "glass"
+    | "white"
+    | "dark"
+    | "blue"
+    | "light"
+    | "outline"
+    | "outline-invert"
+    | "ondark";
   size?: "md" | "sm";
   arrow?: boolean;
   className?: string;
@@ -76,14 +85,14 @@ export function CtaLink({
   );
 }
 
-/** Заголовок секции: крупный, без надзаголовка; accent — слово, выделенное цветом */
+/** Заголовок секции: Oswald капсом, синий; accent — слово, выделенное цветом */
 export function SectionHeading({
   title,
   accent,
   id,
   className = "",
   inverted = false,
-  accentClassName = "text-accent",
+  accentClassName = "text-navy",
 }: {
   title: string;
   accent?: string;
@@ -96,7 +105,7 @@ export function SectionHeading({
     <h2
       id={id}
       className={`display-2 whitespace-pre-line ${
-        inverted ? "text-primary-foreground" : "text-foreground"
+        inverted ? "text-blue" : "text-primary"
       } ${className}`}
     >
       {title}
