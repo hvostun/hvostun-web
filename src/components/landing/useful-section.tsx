@@ -21,7 +21,7 @@ export function UsefulSection() {
               <p className="text-lg leading-relaxed text-pretty text-foreground sm:text-[1.1875rem]">
                 {useful.text}
               </p>
-              <CtaLink href="/polezno/pervye-dni-doma" variant="white" arrow>
+              <CtaLink href="/polezno" variant="white" arrow>
                 {useful.cta}
               </CtaLink>
             </div>

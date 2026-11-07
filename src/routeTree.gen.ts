@@ -15,6 +15,7 @@ import { Route as PpdRouteImport } from './routes/ppd'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ResearchRouteImport } from './routes/research'
 import { Route as PoleznoPervyeDniDomaRouteImport } from './routes/polezno.pervye-dni-doma'
+import { Route as PoleznoIndexRouteImport } from './routes/polezno.index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -46,6 +47,11 @@ const PoleznoPervyeDniDomaRoute = PoleznoPervyeDniDomaRouteImport.update({
   path: '/polezno/pervye-dni-doma',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PoleznoIndexRoute = PoleznoIndexRouteImport.update({
+  id: '/polezno/',
+  path: '/polezno/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -54,6 +60,7 @@ export interface FileRoutesByFullPath {
   '/privacy': typeof PrivacyRoute
   '/research': typeof ResearchRoute
   '/polezno/pervye-dni-doma': typeof PoleznoPervyeDniDomaRoute
+  '/polezno': typeof PoleznoIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -62,6 +69,7 @@ export interface FileRoutesByTo {
   '/privacy': typeof PrivacyRoute
   '/research': typeof ResearchRoute
   '/polezno/pervye-dni-doma': typeof PoleznoPervyeDniDomaRoute
+  '/polezno': typeof PoleznoIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -71,6 +79,7 @@ export interface FileRoutesById {
   '/privacy': typeof PrivacyRoute
   '/research': typeof ResearchRoute
   '/polezno/pervye-dni-doma': typeof PoleznoPervyeDniDomaRoute
+  '/polezno/': typeof PoleznoIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -81,6 +90,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/research'
     | '/polezno/pervye-dni-doma'
+    | '/polezno'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -89,6 +99,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/research'
     | '/polezno/pervye-dni-doma'
+    | '/polezno'
   id:
     | '__root__'
     | '/'
@@ -97,6 +108,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/research'
     | '/polezno/pervye-dni-doma'
+    | '/polezno/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -106,6 +118,7 @@ export interface RootRouteChildren {
   PrivacyRoute: typeof PrivacyRoute
   ResearchRoute: typeof ResearchRoute
   PoleznoPervyeDniDomaRoute: typeof PoleznoPervyeDniDomaRoute
+  PoleznoIndexRoute: typeof PoleznoIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -152,6 +165,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PoleznoPervyeDniDomaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/polezno/': {
+      id: '/polezno/'
+      path: '/polezno'
+      fullPath: '/polezno'
+      preLoaderRoute: typeof PoleznoIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -162,6 +182,7 @@ const rootRouteChildren: RootRouteChildren = {
   PrivacyRoute: PrivacyRoute,
   ResearchRoute: ResearchRoute,
   PoleznoPervyeDniDomaRoute: PoleznoPervyeDniDomaRoute,
+  PoleznoIndexRoute: PoleznoIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
