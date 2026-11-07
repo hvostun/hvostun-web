@@ -26,7 +26,7 @@ export const PRIVACY_POLICY_URL = "/privacy";
 // TODO: replace with approved personal data consent page or document URL.
 export const CONSENT_URL = "/consent";
 
-export const SITE_NAME = "Хвостун";
+export const SITE_NAME = "Hvostun";
 export const SITE_TAGLINE =
   "Сервис поддержки владельцев собак в период адаптации питомца в новом доме";
 

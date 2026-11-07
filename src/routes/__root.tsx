@@ -75,14 +75,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Хвостун — поддержка адаптации собаки в новом доме" },
+      { title: "Hvostun — поддержка адаптации собаки в новом доме" },
       {
         name: "description",
         content:
           "Исследовательский сервис для владельцев собак: оценка возможных рисков, персональный план первых недель и поддержка на основе материалов по гуманной кинологии",
       },
       { property: "og:type", content: "website" },
-      { property: "og:site_name", content: "Хвостун" },
+      { property: "og:site_name", content: "Hvostun" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [

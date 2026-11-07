@@ -4,7 +4,7 @@ import { SiteHeader } from "@/components/landing/site-header";
 import { SiteFooter } from "@/components/landing/site-footer";
 import { CtaLink } from "@/components/landing/ui";
 import { ArticleFigure } from "@/components/article/article-figure";
-import { content, PILOT_FORM_URL } from "@/lib/content";
+import { content, PILOT_FORM_URL, SITE_NAME } from "@/lib/content";
 const TITLE = "У вас появилась собака из приюта. Что делать?";
 const LEAD =
   "Первые недели после переезда — самые важные. Рассказываем, как подготовить дом и помочь собаке почувствовать себя в безопасности.";
@@ -22,7 +22,7 @@ const IMAGES = {
 export const Route = createFileRoute("/polezno/pervye-dni-doma")({
   head: () => ({
     meta: [
-      { title: `${TITLE} — Хвостун` },
+      { title: `${TITLE} — ${SITE_NAME}` },
       { name: "description", content: LEAD },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: LEAD },
