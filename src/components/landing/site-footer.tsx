@@ -31,7 +31,7 @@ export function SiteFooter() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-primary-foreground/85 transition-colors hover:text-blue"
+                    className="-my-1.5 inline-block py-1.5 text-primary-foreground/85 transition-colors hover:text-blue"
                   >
                     {link.label}
                   </a>
@@ -45,7 +45,7 @@ export function SiteFooter() {
               <li>
                 <a
                   href={`mailto:${CONTACT_EMAIL}`}
-                  className="font-semibold text-primary-foreground underline-offset-4 transition-colors hover:text-blue hover:underline"
+                  className="-my-1.5 inline-block py-1.5 font-semibold text-primary-foreground underline-offset-4 transition-colors hover:text-blue hover:underline"
                 >
                   {CONTACT_EMAIL}
                 </a>
@@ -55,7 +55,7 @@ export function SiteFooter() {
                   href={TELEGRAM_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-tint-blue/80 underline-offset-4 transition-colors hover:text-blue hover:underline"
+                  className="-my-1.5 inline-block py-1.5 text-tint-blue/80 underline-offset-4 transition-colors hover:text-blue hover:underline"
                 >
                   {footer.telegramLabel}
                 </a>

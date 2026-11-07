@@ -91,12 +91,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: appCss,
       },
       { rel: "icon", href: "/favicon.png", type: "image/png" },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Literata:ital,wght@1,400&family=Onest:wght@400;500;600;700&family=Oswald:wght@600;700&display=swap",
-      },
+      // Шрифты первого экрана — заранее, чтобы заголовок и текст сразу были своим шрифтом
+      { rel: "preload", href: "/fonts/oswald-cyr-lat.woff2", as: "font", type: "font/woff2", crossOrigin: "anonymous" },
+      { rel: "preload", href: "/fonts/onest-cyr-lat.woff2", as: "font", type: "font/woff2", crossOrigin: "anonymous" },
     ],
   }),
   shellComponent: RootShell,

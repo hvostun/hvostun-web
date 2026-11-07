@@ -36,7 +36,7 @@ function ArticlesPage() {
         <div className="inset-x">
           <Link
             to="/"
-            className="text-[15px] font-medium text-muted-foreground transition-colors hover:text-foreground"
+            className="-my-3 inline-block py-3 text-[15px] font-medium text-muted-foreground transition-colors hover:text-foreground"
           >
             ← На главную
           </Link>

@@ -14,9 +14,22 @@ const SOURCE = "sputnik.dog";
 const READING_TIME = "4 минуты чтения";
 
 /** Изображения: подставьте src, когда они будут готовы */
+// Уменьшенные копии фото (оригиналы по 10 МБ, 6000×4000) — браузер выбирает размер под экран
 const IMAGES = {
-  hero: "/images/maurice-dt--GvI1Y2Cw08-unsplash.jpg",
-  rest: "/images/maurice-dt-C7g--tKpd1A-unsplash.jpg",
+  hero: {
+    src: "/images/article-new-home-1440.webp",
+    srcSet:
+      "/images/article-new-home-640.webp 640w, /images/article-new-home-960.webp 960w, /images/article-new-home-1440.webp 1440w, /images/article-new-home-1920.webp 1920w",
+    // карточка — во всю ширину контейнера, но не шире 960px
+    sizes: "(min-width: 1008px) 960px, calc(100vw - 2rem)",
+  },
+  rest: {
+    src: "/images/article-rest-960.webp",
+    srcSet:
+      "/images/article-rest-640.webp 640w, /images/article-rest-960.webp 960w, /images/article-rest-1440.webp 1440w",
+    // колонка текста — не шире 720px
+    sizes: "(min-width: 768px) 720px, calc(100vw - 2rem)",
+  },
 };
 
 export const Route = createFileRoute("/polezno/pervye-dni-doma")({
@@ -81,7 +94,7 @@ function ArticlePage() {
             <div className="mx-auto max-w-[720px]">
               <Link
                 to="/"
-                className="text-[15px] font-medium text-blue transition-colors hover:text-cream"
+                className="-my-3 inline-block py-3 text-[15px] font-medium text-blue transition-colors hover:text-cream"
               >
                 ← На главную
               </Link>
@@ -104,7 +117,8 @@ function ArticlePage() {
 
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <ArticleFigure
-            src={IMAGES.hero}
+            {...IMAGES.hero}
+            priority
             alt="Собака в новом доме"
             subject="Собака в новом доме"
             className="relative mx-auto -mt-16 max-w-[960px] sm:-mt-28"
@@ -162,7 +176,7 @@ function ArticlePage() {
                 </div>
 
                 <ArticleFigure
-                  src={IMAGES.rest}
+                  {...IMAGES.rest}
                   alt="Собака отдыхает на своем месте"
                   subject="Собака отдыхает на своем месте"
                   ratio="4/3"

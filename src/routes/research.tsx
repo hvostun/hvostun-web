@@ -25,7 +25,7 @@ function ResearchPage() {
       <main className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-24">
         <Link
           to="/"
-          className="text-sm font-medium text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
+          className="-my-3 inline-block py-3 text-sm font-medium text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
         >
           ← На главную
         </Link>

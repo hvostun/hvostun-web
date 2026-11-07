@@ -5,6 +5,36 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
+ * Шрифты — с нашего сайта, а не с Google Fonts: внешняя таблица стилей блокировала первую отрисовку,
+ * а из России Google Fonts иногда отвечает медленно. Файлы — подмножества латиница + кириллица (WOFF2),
+ * сделаны из тех же шрифтов (лицензия SIL OFL, сведения о лицензии сохранены внутри файлов).
+ * Oswald и Onest подгружаются заранее (preload в __root.tsx).
+ */
+@font-face {
+  font-family: "Onest";
+  src: url("/fonts/onest-cyr-lat.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Oswald";
+  src: url("/fonts/oswald-cyr-lat.woff2") format("woff2");
+  font-weight: 600 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Literata";
+  src: url("/fonts/literata-italic-cyr-lat.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/*
  * Дизайн-система лендинга «Хвостун» — палитра приложения (ДС от 05.11.2026).
  *
  * Палитра:
@@ -238,6 +268,13 @@
   @media (min-width: 640px) {
     .display-2 {
       font-size: clamp(2.125rem, 4.4vw, 3rem);
+    }
+  }
+
+  /* С 1024px заголовок стоит в половине ширины: на 1024–1090px «ИНДИВИДУАЛЬНЫЙ» вылезал из колонки */
+  @media (min-width: 1024px) {
+    .display-2 {
+      font-size: clamp(2.125rem, 3.75vw, 3rem);
     }
   }
 
@@ -620,18 +657,30 @@
     color: color-mix(in oklab, var(--color-foreground) 62%, transparent);
   }
 
-  /* Плавное появление секций (отключается prefers-reduced-motion выше) */
-  .reveal {
-    opacity: 0;
-    transform: translateY(20px);
-    transition:
-      opacity 0.6s ease,
-      transform 0.6s ease;
+  /* Плавное появление секций при прокрутке — без JavaScript.
+     Анимация привязана к положению блока на экране (animation-timeline: view()):
+     что уже видно при загрузке — видно сразу; браузеры без поддержки просто показывают блок.
+     Отключается prefers-reduced-motion ниже. */
+  @keyframes reveal-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
   }
 
-  .reveal.is-visible {
-    opacity: 1;
-    transform: translateY(0);
+  @supports (animation-timeline: view()) {
+    /* только экран: при печати и снимке всей страницы блоки не должны оставаться прозрачными */
+    @media screen and (prefers-reduced-motion: no-preference) {
+      .reveal {
+        animation: reveal-in linear both;
+        animation-timeline: view();
+        animation-range: entry calc(var(--reveal-shift, 0px)) entry calc(140px + var(--reveal-shift, 0px));
+      }
+    }
   }
 
   /* Фотополоска из фотобудки */

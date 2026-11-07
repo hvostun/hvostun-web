@@ -9,6 +9,9 @@ const PUBLISHED_HOSTS = ["hvostun.com", "www.hvostun.com", "hvostun.lovable.app"
  */
 export function ArticleFigure({
   src,
+  srcSet,
+  sizes,
+  priority = false,
   alt,
   caption,
   credit,
@@ -18,6 +21,11 @@ export function ArticleFigure({
   className = "",
 }: {
   src?: string | undefined;
+  /** Набор размеров фото и ширина на экране — браузер скачает подходящий */
+  srcSet?: string;
+  sizes?: string;
+  /** Фото на первом экране: грузить сразу и в первую очередь, без lazy */
+  priority?: boolean;
   alt: string;
   caption?: string;
   credit?: string;
@@ -44,8 +52,12 @@ export function ArticleFigure({
         {src ? (
           <img
             src={src}
+            srcSet={srcSet}
+            sizes={sizes}
             alt={alt}
-            loading="lazy"
+            loading={priority ? "eager" : "lazy"}
+            fetchPriority={priority ? "high" : "auto"}
+            decoding="async"
             className="block w-full object-cover"
             style={{ aspectRatio: ratio }}
           />
