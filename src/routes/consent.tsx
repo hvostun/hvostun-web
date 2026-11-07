@@ -27,7 +27,7 @@ function ConsentPage() {
       >
         ← На главную
       </Link>
-      <h1 className="mt-6 font-display text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+      <h1 className="display-2 mt-6 text-primary">
         Согласие на обработку персональных данных
       </h1>
       <div className="mt-8 rounded-2xl border border-dashed border-foreground/40 bg-muted p-6">

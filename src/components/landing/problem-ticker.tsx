@@ -13,16 +13,16 @@ export function ProblemTicker() {
   return (
     <section
       aria-label="Примеры сложностей адаптации"
-      className="flex h-24 items-center sm:h-32 overflow-hidden bg-primary"
+      className="mt-12 flex h-24 items-center overflow-hidden border-y border-border bg-background sm:mt-16 sm:h-28"
     >
       <div className="ticker-track flex w-max items-center gap-8 whitespace-nowrap px-4 sm:gap-12 sm:px-6">
         {items.map((item) => (
           <span
             key={item.id}
-            className="font-quote text-[1.3125rem] italic text-primary-foreground sm:text-[1.875rem]"
+            className="font-quote text-[1.3125rem] italic text-foreground/80 sm:text-[1.5rem]"
           >
             «{item.text}»
-            <span className="ml-8 sm:ml-12 inline-block h-1.5 w-1.5 rounded-full bg-blue" aria-hidden="true" />
+            <span className="ml-8 sm:ml-12 inline-block h-1.5 w-1.5 rounded-full bg-lilac" aria-hidden="true" />
           </span>
         ))}
       </div>
@@ -30,10 +30,10 @@ export function ProblemTicker() {
         {items.map((item) => (
           <span
             key={`dup-${item.id}`}
-            className="font-quote text-[1.3125rem] italic text-primary-foreground sm:text-[1.875rem]"
+            className="font-quote text-[1.3125rem] italic text-foreground/80 sm:text-[1.5rem]"
           >
             «{item.text}»
-            <span className="ml-8 sm:ml-12 inline-block h-1.5 w-1.5 rounded-full bg-blue" aria-hidden="true" />
+            <span className="ml-8 sm:ml-12 inline-block h-1.5 w-1.5 rounded-full bg-lilac" aria-hidden="true" />
           </span>
         ))}
       </div>

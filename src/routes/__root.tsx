@@ -15,18 +15,15 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
+    <div className="flex min-h-screen items-center justify-center bg-primary px-4">
       <div className="max-w-md text-center">
-        <h1 className="font-display text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Страница не найдена</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
+        <h1 className="font-display text-[7.5rem] font-bold leading-none text-lime">404</h1>
+        <h2 className="mt-4 text-[1.375rem] font-semibold text-primary-foreground">Страница не найдена</h2>
+        <p className="mt-2 text-[15px] text-blue">
           Возможно, страница была перемещена или ее не существует.
         </p>
-        <div className="mt-6">
-          <Link
-            to="/"
-            className="inline-flex items-center justify-center rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-          >
+        <div className="mt-7">
+          <Link to="/" className="btn btn-lime">
             На главную
           </Link>
         </div>
@@ -63,7 +60,7 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
           </button>
           <a
             href="/"
-            className="inline-flex items-center justify-center rounded-full border border-input bg-background px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-accent"
+            className="inline-flex items-center justify-center rounded-full border border-input bg-background px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-muted"
           >
             На главную
           </a>
@@ -98,7 +95,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Literata:ital,wght@1,400&family=Manrope:wght@400;500;600;700&family=Sora:wght@600;700&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Literata:ital,wght@1,400&family=Onest:wght@400;500;600;700&family=Oswald:wght@600;700&display=swap",
       },
     ],
   }),

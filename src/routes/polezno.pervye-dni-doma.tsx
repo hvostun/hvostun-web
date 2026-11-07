@@ -36,44 +36,27 @@ export const Route = createFileRoute("/polezno/pervye-dni-doma")({
 });
 
 const SECTION = "mt-16 sm:mt-20";
+const END_BLOCK =
+  "grid gap-6 rounded-[20px] p-7 sm:p-10 lg:grid-cols-[1.2fr_1fr] lg:items-center lg:gap-16 lg:p-14";
+const END_TITLE =
+  "font-display text-[clamp(1.75rem,3.4vw,2.5rem)] font-bold uppercase leading-[1.1] text-balance text-primary";
 
-/** Заголовок раздела: цветом текста, без зеленого — зеленый оставлен для действий */
+/** Заголовок раздела: Oswald капсом синим, как заголовки на главной */
 function H2({ id, children }: { id: string; children: ReactNode }) {
   return (
-    <h2
-      id={id}
-      className="scroll-mt-28 font-display text-[clamp(1.625rem,3vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.03em] text-balance text-foreground"
-    >
+    <h2 id={id} className="display-3 scroll-mt-28 text-primary">
       {children}
     </h2>
   );
 }
 
-/** Правило внутри раздела: строка с тонкой линией сверху, как этапы на главной */
+/** Правило внутри раздела: подзаголовок и текст на общей левой линии статьи */
 function Rule({ title, children }: { title: string; children: ReactNode }) {
   return (
-    <div className="border-t border-foreground/15 pt-5 sm:pt-6">
-      <h3 className="font-display text-lg font-semibold leading-snug tracking-[-0.015em] text-foreground sm:text-xl">
-        {title}
-      </h3>
-      <p className="mt-2 text-foreground/80">{children}</p>
+    <div>
+      <h3 className="text-lg font-semibold leading-snug tracking-[-0.01em] text-foreground sm:text-xl">{title}</h3>
+      <p className="mt-2 text-muted-foreground">{children}</p>
     </div>
-  );
-}
-
-/** Галочка для чек-листа подготовки */
-function Check() {
-  return (
-    <svg
-      viewBox="0 0 20 20"
-      width="20"
-      height="20"
-      fill="none"
-      aria-hidden="true"
-      className="mt-[0.2em] shrink-0 text-accent"
-    >
-      <path d="M4 10.5l4 4 8-9" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
   );
 }
 
@@ -86,29 +69,29 @@ const PREP: readonly ReactNode[] = [
 ];
 
 function ArticlePage() {
-  const { pilot } = content;
+  const { pilot, articleResearch } = content;
 
   return (
     <div className="min-h-screen bg-background">
       <SiteHeader />
       <main className="overflow-x-clip">
-        {/* Шапка статьи на голубом; фото заходит на ее нижний край */}
-        <header className="bg-tint-blue">
+        {/* Шапка статьи на синем, как первый экран главной; фото заходит на ее нижний край */}
+        <header className="bg-primary text-primary-foreground">
           <div className="mx-auto max-w-6xl px-4 pb-24 pt-10 sm:px-6 sm:pb-40 sm:pt-14 lg:pt-20">
             <div className="mx-auto max-w-[720px]">
               <Link
                 to="/"
-                className="text-[15px] font-medium text-foreground/70 transition-colors hover:text-foreground"
+                className="text-[15px] font-medium text-blue transition-colors hover:text-cream"
               >
                 ← На главную
               </Link>
-              <h1 className="display-2 mt-8 text-foreground sm:mt-10">{TITLE}</h1>
-              <p className="mt-6 max-w-[640px] text-lg leading-relaxed text-pretty text-foreground/75 sm:text-xl">
+              <h1 className="display-2 mt-8 text-blue sm:mt-10">{TITLE}</h1>
+              <p className="mt-6 max-w-[640px] text-lg leading-relaxed text-pretty text-cream sm:text-xl">
                 {LEAD}
               </p>
-              <p className="mt-8 flex flex-wrap gap-x-3 gap-y-1 text-[15px] text-foreground/65">
+              <p className="mt-8 flex flex-wrap gap-x-3 gap-y-1 text-[15px] text-cream/75">
                 <span>
-                  Авторы: <span className="font-semibold text-foreground">{AUTHORS}</span>
+                  Авторы: <span className="font-semibold text-lime">{AUTHORS}</span>
                 </span>
                 <span aria-hidden="true">·</span>
                 <span>{SOURCE}</span>
@@ -132,16 +115,17 @@ function ArticlePage() {
               <section aria-labelledby="podgotovka">
                 <H2 id="podgotovka">Подготовьтесь заранее</H2>
                 <p className="mt-5">Если вы решили взять собаку, к ее появлению лучше подготовиться заранее.</p>
-                <ul className="mt-6 border-b border-foreground/15">
+                <ul className="mt-6 border-b border-border">
                   {PREP.map((item, i) => (
-                    <li key={i} className="flex gap-4 border-t border-foreground/15 py-4">
-                      <Check />
-                      <span className="text-foreground/85">{item}</span>
+                    <li key={i} className="border-t border-border py-4 text-muted-foreground">
+                      {item}
                     </li>
                   ))}
                 </ul>
                 <p className="mt-6 text-lg font-medium leading-relaxed sm:text-xl">
-                  И главное: будьте спокойны и морально готовы к тому, что первое время будет непросто.
+                  <span className="marker">
+                    И главное: будьте спокойны и морально готовы к тому, что первое время будет непросто.
+                  </span>
                 </p>
               </section>
 
@@ -183,7 +167,7 @@ function ArticlePage() {
                   subject="Собака отдыхает на своем месте"
                   ratio="4/3"
                   tilt={-1.5}
-                  className="my-12 sm:mx-8"
+                  className="my-12"
                 />
 
                 <div className="flex flex-col gap-8">
@@ -225,10 +209,10 @@ function ArticlePage() {
                   Присмотритесь к ее характеру, привычкам и потребностям. Со временем вы многое поймете. Например:
                 </p>
                 <ul className="mt-4 flex flex-col gap-3">
-                  <li className="relative pl-6 before:absolute before:left-0 before:top-[0.85em] before:h-px before:w-3 before:bg-foreground/40">
+                  <li className="relative pl-6 before:absolute before:left-0 before:top-[0.85em] before:h-[1.5px] before:w-3 before:bg-primary sm:pl-0 sm:before:-left-6">
                     если собаке неуютно на месте, где лежит ее лежанка, предложите ей другое;
                   </li>
-                  <li className="relative pl-6 before:absolute before:left-0 before:top-[0.85em] before:h-px before:w-3 before:bg-foreground/40">
+                  <li className="relative pl-6 before:absolute before:left-0 before:top-[0.85em] before:h-[1.5px] before:w-3 before:bg-primary sm:pl-0 sm:before:-left-6">
                     если вы заметите, где ей не нравится гулять или с кем она не хочет встречаться, просто обходите такие
                     места и не допускайте лишних встреч.
                   </li>
@@ -255,16 +239,13 @@ function ArticlePage() {
               </section>
 
               <aside
-                className={`${SECTION} rounded-[20px] bg-primary p-7 text-primary-foreground sm:p-10`}
+                className={`${SECTION} rounded-[20px] bg-lilac p-7 text-foreground sm:p-10`}
                 aria-labelledby="bezopasnost"
               >
-                <h2
-                  id="bezopasnost"
-                  className="font-display text-xl font-bold tracking-[-0.02em] text-primary-foreground sm:text-2xl"
-                >
+                <h2 id="bezopasnost" className="display-3 text-navy">
                   Ваша безопасность
                 </h2>
-                <p className="mt-4 text-pretty text-primary-foreground/85">
+                <p className="mt-4 text-pretty text-foreground">
                   Если вам показалось, что собака ведет себя агрессивно по отношению к вам, в первую очередь думайте о
                   своей безопасности. Используйте намордник или специальные перегородки-решетки, чтобы разделить
                   пространство.
@@ -272,33 +253,46 @@ function ArticlePage() {
               </aside>
 
               <p className="mt-10 text-lg font-medium leading-relaxed sm:text-xl">
-                Безвыходных ситуаций не бывает. Всегда можно обратиться к специалисту по поведению собак, его
-                еще называют зоопсихологом.
+                <span className="marker">Безвыходных ситуаций не бывает.</span> Всегда можно обратиться к
+                специалисту по поведению собак, его еще называют зоопсихологом.
               </p>
             </article>
           </div>
 
-          {/* Приглашение в пилот: статья читается теми же людьми, для кого пилот */}
-          <section
-            aria-labelledby="article-pilot-title"
-            className="mx-auto mb-16 mt-20 grid max-w-[960px] gap-8 rounded-[20px] bg-tint-blue p-7 sm:mb-24 sm:mt-28 sm:p-10 lg:grid-cols-[1.2fr_1fr] lg:items-center lg:gap-16 lg:p-14"
-          >
-            <h2
-              id="article-pilot-title"
-              className="font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-bold leading-[1.06] tracking-[-0.035em] text-balance text-foreground"
-            >
-              {pilot.titleBefore} <span className="text-accent">{pilot.titleAccent}</span>
-            </h2>
-            <div className="flex flex-col gap-6">
-              <p className="text-base leading-relaxed text-pretty text-foreground/75 sm:text-lg">{pilot.text}</p>
-              <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
-                <CtaLink href={PILOT_FORM_URL} variant="cta" arrow>
-                  {pilot.cta}
-                </CtaLink>
-                <span className="whitespace-nowrap text-center text-[15px] font-medium text-foreground/65 sm:text-left">{pilot.note}</span>
+          {/* Два финальных блока с одинаковой раскладкой: заголовок слева, текст и кнопка справа */}
+          <div className="mx-auto mb-16 mt-20 flex max-w-[960px] flex-col gap-5 sm:mb-24 sm:mt-28">
+            <section aria-labelledby="article-research-title" className={`${END_BLOCK} bg-tint-blue`}>
+              <h2 id="article-research-title" className={END_TITLE}>
+                {articleResearch.title}
+              </h2>
+              <div className="flex flex-col gap-6">
+                <p className="text-base leading-relaxed text-pretty text-foreground sm:text-[17px]">{articleResearch.text}</p>
+                <div>
+                  <CtaLink href="/research" variant="cta" arrow>
+                    {articleResearch.cta}
+                  </CtaLink>
+                </div>
               </div>
-            </div>
-          </section>
+            </section>
+
+            {/* Приглашение в пилот: статья читается теми же людьми, для кого пилот */}
+            <section aria-labelledby="article-pilot-title" className={`${END_BLOCK} bg-lime`}>
+              <h2 id="article-pilot-title" className={END_TITLE}>
+                {pilot.titleBefore} {pilot.titleAccent}
+              </h2>
+              <div className="flex flex-col gap-6">
+                <p className="text-base leading-relaxed text-pretty text-foreground sm:text-[17px]">{pilot.text}</p>
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
+                  <CtaLink href={PILOT_FORM_URL} variant="cta" arrow>
+                    {pilot.cta}
+                  </CtaLink>
+                  <span className="whitespace-nowrap text-center text-[15px] font-medium text-navy sm:text-left">
+                    {pilot.note}
+                  </span>
+                </div>
+              </div>
+            </section>
+          </div>
         </div>
       </main>
       <SiteFooter />

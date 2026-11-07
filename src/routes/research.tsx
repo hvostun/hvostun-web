@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/landing/site-header";
 import { SiteFooter } from "@/components/landing/site-footer";
-import { CtaLink, SectionHeading } from "@/components/landing/ui";
+import { Arrow } from "@/components/landing/ui";
 import { content, RESEARCH_FORM_URLS, SITE_NAME } from "@/lib/content";
 
 export const Route = createFileRoute("/research")({
@@ -17,7 +17,7 @@ export const Route = createFileRoute("/research")({
 });
 
 function ResearchPage() {
-  const { researchQuiz } = content;
+  const { researchQuiz, researchWhy } = content;
 
   return (
     <div className="min-h-screen bg-background">
@@ -31,29 +31,42 @@ function ResearchPage() {
         </Link>
         <section
           aria-labelledby="research-quiz-title"
-          className="mt-8 flex flex-col gap-7 rounded-[20px] bg-tint-blue p-7 sm:p-10 lg:p-14"
+          className="mt-8 flex flex-col gap-6 rounded-[20px] bg-primary p-7 text-primary-foreground sm:p-10 lg:p-14"
         >
-          <SectionHeading
-            id="research-quiz-title"
-            title={researchQuiz.title}
-            className="text-[clamp(2rem,3.6vw,3rem)]"
-          />
-          <p className="text-base leading-relaxed text-pretty text-foreground/75 sm:text-lg">
-            {researchQuiz.text}
-          </p>
+          <h1 id="research-quiz-title" className="display-2 text-blue">
+            {researchQuiz.title}
+          </h1>
+          <p className="text-base leading-relaxed text-pretty text-cream sm:text-lg">{researchQuiz.text}</p>
           <div className="flex flex-col gap-3">
             {researchQuiz.options.map((option) => (
-              <CtaLink
+              <a
                 key={option.value}
                 href={RESEARCH_FORM_URLS[option.value]}
-                variant="light"
-                arrow
-                className="w-full justify-between"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="answer"
               >
                 {option.label}
-              </CtaLink>
+                <Arrow />
+              </a>
             ))}
           </div>
+        </section>
+
+        <section aria-labelledby="research-why-title" className="mt-16 sm:mt-20">
+          <h2 id="research-why-title" className="display-3 text-primary">
+            {researchWhy.title}
+          </h2>
+          <ul className="mt-6 border-b border-border">
+            {researchWhy.items.map((item) => (
+              <li
+                key={item}
+                className="border-t border-border py-4 text-base leading-relaxed text-pretty text-muted-foreground sm:text-[17px]"
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
         </section>
       </main>
       <SiteFooter />

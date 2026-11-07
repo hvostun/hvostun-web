@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { Arrow } from "@/components/landing/ui";
 import { SiteHeader } from "@/components/landing/site-header";
 import { SiteFooter } from "@/components/landing/site-footer";
 import { SITE_NAME } from "@/lib/content";
@@ -31,19 +32,20 @@ function PpdPage() {
         >
           ← На главную
         </Link>
-        <h1 className="mt-6 font-display text-3xl font-semibold tracking-tight text-balance text-foreground sm:text-4xl">
+        <h1 className="display-2 mt-6 text-primary">
           {TITLE}
         </h1>
         <iframe
           src={PDF_URL}
           title={TITLE}
-          className="mt-8 h-[80vh] w-full rounded-[20px] border border-foreground/15 bg-background"
+          className="mt-8 h-[80vh] w-full rounded-[20px] border-[1.5px] border-primary/25 bg-background"
         />
         <a
           href={PDF_URL}
-          className="mt-4 inline-flex text-sm font-medium text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
+          className="text-link mt-5"
         >
           Открыть документ
+          <Arrow />
         </a>
       </main>
       <SiteFooter />

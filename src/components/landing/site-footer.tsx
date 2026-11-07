@@ -16,9 +16,10 @@ export function SiteFooter() {
       className="scroll-mt-20 bg-primary pb-10 pt-16 text-primary-foreground sm:pt-24"
     >
       <div className="mx-auto max-w-6xl px-4 text-left sm:px-6">
+        <div className="inset-x">
         <div className="flex flex-col gap-10 sm:flex-row sm:flex-wrap sm:items-start sm:justify-between sm:gap-16">
           <div className="sm:basis-full lg:basis-auto lg:max-w-md">
-            <p className="font-display text-[1.375rem] font-bold tracking-[-0.035em]">{SITE_NAME}</p>
+            <p className="text-[1.375rem] font-bold tracking-[-0.03em]">{SITE_NAME}</p>
             <p className="mt-3 text-pretty text-sm leading-relaxed text-tint-blue/75">
               {SITE_TAGLINE}
             </p>
@@ -65,6 +66,7 @@ export function SiteFooter() {
 
         <div className="mt-12 border-t border-tint-blue/15 pt-6 text-sm text-tint-blue/60">
           <p>© {year} {SITE_NAME}</p>
+        </div>
         </div>
       </div>
     </footer>
