@@ -4,7 +4,7 @@
  * чтобы тестовые заходы не попадали в статистику. VITE_YM_COUNTER_ID переопределяет номер.
  * TODO: дополнить политику /privacy пунктом о cookie и Яндекс Метрике.
  */
-const DEFAULT_COUNTER_ID = 114224216;
+const DEFAULT_COUNTER_ID = 114251928;
 
 export const YM_COUNTER_ID = Number(
   import.meta.env["VITE_YM_COUNTER_ID"] || (import.meta.env.PROD ? DEFAULT_COUNTER_ID : 0),
