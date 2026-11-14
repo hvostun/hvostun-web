@@ -14,8 +14,7 @@ export const RESEARCH_FORM_URLS = {
 
 export const PILOT_FORM_URL = "https://t.me/zhurina_polina";
 
-// TODO: replace with real project email.
-export const CONTACT_EMAIL = "info@hvostun.com";
+export const CONTACT_EMAIL = "tereshchenkova.liu@phystech.edu";
 
 // TODO: replace with Telegram channel/chat URL.
 export const TELEGRAM_URL = "https://t.me/hvostundog";
