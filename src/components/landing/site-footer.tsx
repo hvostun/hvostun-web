@@ -65,7 +65,12 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-12 border-t border-tint-blue/15 pt-6 text-sm text-tint-blue/60">
-          <p>© {year} {SITE_NAME}</p>
+          <p className="flex flex-wrap gap-x-6 gap-y-2">
+            <span>© {year} {SITE_NAME}</span>
+            <a href="/cookies" className="underline-offset-4 transition-colors hover:text-blue hover:underline">
+              {footer.cookiesLabel}
+            </a>
+          </p>
         </div>
         </div>
       </div>

@@ -11,11 +11,12 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ConsentRouteImport } from './routes/consent'
+import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as PpdRouteImport } from './routes/ppd'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ResearchRouteImport } from './routes/research'
-import { Route as PoleznoPervyeDniDomaRouteImport } from './routes/polezno.pervye-dni-doma'
 import { Route as PoleznoIndexRouteImport } from './routes/polezno.index'
+import { Route as PoleznoPervyeDniDomaRouteImport } from './routes/polezno.pervye-dni-doma'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -25,6 +26,11 @@ const IndexRoute = IndexRouteImport.update({
 const ConsentRoute = ConsentRouteImport.update({
   id: '/consent',
   path: '/consent',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CookiesRoute = CookiesRouteImport.update({
+  id: '/cookies',
+  path: '/cookies',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PpdRoute = PpdRouteImport.update({
@@ -42,29 +48,31 @@ const ResearchRoute = ResearchRouteImport.update({
   path: '/research',
   getParentRoute: () => rootRouteImport,
 } as any)
-const PoleznoPervyeDniDomaRoute = PoleznoPervyeDniDomaRouteImport.update({
-  id: '/polezno/pervye-dni-doma',
-  path: '/polezno/pervye-dni-doma',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const PoleznoIndexRoute = PoleznoIndexRouteImport.update({
   id: '/polezno/',
   path: '/polezno/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PoleznoPervyeDniDomaRoute = PoleznoPervyeDniDomaRouteImport.update({
+  id: '/polezno/pervye-dni-doma',
+  path: '/polezno/pervye-dni-doma',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/consent': typeof ConsentRoute
+  '/cookies': typeof CookiesRoute
   '/ppd': typeof PpdRoute
   '/privacy': typeof PrivacyRoute
   '/research': typeof ResearchRoute
   '/polezno/pervye-dni-doma': typeof PoleznoPervyeDniDomaRoute
-  '/polezno': typeof PoleznoIndexRoute
+  '/polezno/': typeof PoleznoIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/consent': typeof ConsentRoute
+  '/cookies': typeof CookiesRoute
   '/ppd': typeof PpdRoute
   '/privacy': typeof PrivacyRoute
   '/research': typeof ResearchRoute
@@ -75,6 +83,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/consent': typeof ConsentRoute
+  '/cookies': typeof CookiesRoute
   '/ppd': typeof PpdRoute
   '/privacy': typeof PrivacyRoute
   '/research': typeof ResearchRoute
@@ -86,15 +95,17 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/consent'
+    | '/cookies'
     | '/ppd'
     | '/privacy'
     | '/research'
     | '/polezno/pervye-dni-doma'
-    | '/polezno'
+    | '/polezno/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/consent'
+    | '/cookies'
     | '/ppd'
     | '/privacy'
     | '/research'
@@ -104,6 +115,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/consent'
+    | '/cookies'
     | '/ppd'
     | '/privacy'
     | '/research'
@@ -114,6 +126,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ConsentRoute: typeof ConsentRoute
+  CookiesRoute: typeof CookiesRoute
   PpdRoute: typeof PpdRoute
   PrivacyRoute: typeof PrivacyRoute
   ResearchRoute: typeof ResearchRoute
@@ -137,6 +150,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ConsentRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/cookies': {
+      id: '/cookies'
+      path: '/cookies'
+      fullPath: '/cookies'
+      preLoaderRoute: typeof CookiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/ppd': {
       id: '/ppd'
       path: '/ppd'
@@ -158,18 +178,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ResearchRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/polezno/': {
+      id: '/polezno/'
+      path: '/polezno'
+      fullPath: '/polezno/'
+      preLoaderRoute: typeof PoleznoIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/polezno/pervye-dni-doma': {
       id: '/polezno/pervye-dni-doma'
       path: '/polezno/pervye-dni-doma'
       fullPath: '/polezno/pervye-dni-doma'
       preLoaderRoute: typeof PoleznoPervyeDniDomaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/polezno/': {
-      id: '/polezno/'
-      path: '/polezno'
-      fullPath: '/polezno'
-      preLoaderRoute: typeof PoleznoIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -178,6 +198,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ConsentRoute: ConsentRoute,
+  CookiesRoute: CookiesRoute,
   PpdRoute: PpdRoute,
   PrivacyRoute: PrivacyRoute,
   ResearchRoute: ResearchRoute,
