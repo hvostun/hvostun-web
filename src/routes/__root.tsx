@@ -12,6 +12,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { metrikaInitScript, YM_COUNTER_ID } from "../lib/analytics";
 
 function NotFoundComponent() {
   return (
@@ -95,6 +96,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preload", href: "/fonts/oswald-cyr-lat.woff2", as: "font", type: "font/woff2", crossOrigin: "anonymous" },
       { rel: "preload", href: "/fonts/onest-cyr-lat.woff2", as: "font", type: "font/woff2", crossOrigin: "anonymous" },
     ],
+    // Яндекс Метрика: только на опубликованной сборке (см. src/lib/analytics.ts)
+    scripts: YM_COUNTER_ID ? [{ children: metrikaInitScript(YM_COUNTER_ID) }] : [],
   }),
   shellComponent: RootShell,
   component: RootComponent,
