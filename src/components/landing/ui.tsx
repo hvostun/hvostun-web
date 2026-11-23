@@ -1,4 +1,5 @@
 import { SITE_NAME } from "@/lib/content";
+import { trackMetrikaGoal } from "@/lib/metrika";
 
 /**
  * Общие элементы интерфейса лендинга: текстовый логотип, CTA-ссылки,
@@ -57,6 +58,7 @@ type CtaLinkProps = {
   size?: "md" | "sm";
   arrow?: boolean;
   className?: string;
+  analytics?: { goal: "research_click" | "pilot_click"; placement: "hero" | "article_end" };
   children: React.ReactNode;
 };
 
@@ -70,12 +72,14 @@ export function CtaLink({
   size = "md",
   arrow = false,
   className = "",
+  analytics,
   children,
 }: CtaLinkProps) {
   const isAnchor = href.startsWith("#") || href.startsWith("/");
   return (
     <a
       href={href}
+      onClick={analytics ? () => trackMetrikaGoal(analytics.goal, { placement: analytics.placement }) : undefined}
       className={`btn btn-${variant} ${size === "sm" ? "btn-sm" : ""} ${className}`}
       {...(isAnchor ? {} : { target: "_blank", rel: "noopener noreferrer" })}
     >
