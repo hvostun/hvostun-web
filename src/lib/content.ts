@@ -187,5 +187,6 @@ export const content = {
     privacyLabel: "Политика обработки персональных данных",
     consentLabel: "Согласие на обработку персональных данных",
     telegramLabel: "Telegram",
+    cookiesLabel: "Cookie и аналитика",
   },
 } as const;
