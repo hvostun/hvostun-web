@@ -7,11 +7,13 @@ import {
   useRouter,
   HeadContent,
   Scripts,
+  useRouterState,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { trackMetrikaPage } from "../lib/metrika";
 
 function NotFoundComponent() {
   return (
@@ -121,8 +123,17 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <MetrikaPageViews />
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
     </QueryClientProvider>
   );
+}
+
+function MetrikaPageViews() {
+  const href = useRouterState({ select: (state) => state.resolvedLocation?.href });
+  useEffect(() => {
+    if (href) trackMetrikaPage(href);
+  }, [href]);
+  return null;
 }

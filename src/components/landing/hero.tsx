@@ -39,10 +39,10 @@ export function Hero() {
                 {hero.subtitle}
               </p>
               <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                <CtaLink href="/research" variant="lime" arrow>
+                <CtaLink href="/research" variant="lime" arrow analytics={{ goal: "research_click", placement: "hero" }}>
                   {hero.primaryCta}
                 </CtaLink>
-                <CtaLink href={PILOT_FORM_URL} variant="glass">
+                <CtaLink href={PILOT_FORM_URL} variant="glass" analytics={{ goal: "pilot_click", placement: "hero" }}>
                   {hero.secondaryCta}
                 </CtaLink>
               </div>

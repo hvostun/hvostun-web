@@ -4,6 +4,7 @@ import { SiteHeader } from "@/components/landing/site-header";
 import { SiteFooter } from "@/components/landing/site-footer";
 import { CtaLink } from "@/components/landing/ui";
 import { ArticleFigure } from "@/components/article/article-figure";
+import { ArticleReadingGoal } from "@/components/article/article-reading-goal";
 import { content, PILOT_FORM_URL, SITE_NAME } from "@/lib/content";
 const TITLE = "У вас появилась собака из приюта. Что делать?";
 const LEAD =
@@ -270,6 +271,7 @@ function ArticlePage() {
                 <span className="marker">Безвыходных ситуаций не бывает.</span> Всегда можно обратиться к
                 специалисту по поведению собак, его еще называют зоопсихологом.
               </p>
+              <ArticleReadingGoal slug="pervye-dni-doma" />
             </article>
           </div>
 
@@ -282,7 +284,7 @@ function ArticlePage() {
               <div className="flex flex-col gap-6">
                 <p className="text-base leading-relaxed text-pretty text-foreground sm:text-[17px]">{articleResearch.text}</p>
                 <div>
-                  <CtaLink href="/research" variant="cta" arrow>
+                  <CtaLink href="/research" variant="cta" arrow analytics={{ goal: "research_click", placement: "article_end" }}>
                     {articleResearch.cta}
                   </CtaLink>
                 </div>
@@ -297,7 +299,7 @@ function ArticlePage() {
               <div className="flex flex-col gap-6">
                 <p className="text-base leading-relaxed text-pretty text-foreground sm:text-[17px]">{pilot.text}</p>
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
-                  <CtaLink href={PILOT_FORM_URL} variant="cta" arrow>
+                  <CtaLink href={PILOT_FORM_URL} variant="cta" arrow analytics={{ goal: "pilot_click", placement: "article_end" }}>
                     {pilot.cta}
                   </CtaLink>
                   <span className="whitespace-nowrap text-center text-[15px] font-medium text-navy sm:text-left">
